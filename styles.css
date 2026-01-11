@@ -1,28 +1,28 @@
-  :root {
+:root {
       --primary: #2e2b63;
       --secondary: #0f172a;
       --light: #f8fafc;
       --gray: #6282ae;
-    }
+}
 
-    * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
+}
 
-    html, body {
+html, body {
       scroll-behavior: smooth;
-    }
+}
 
-    body {
+body {
       font-family: Arial, Helvetica, sans-serif;
       background: var(--light);
       color: var(--secondary);
       line-height: 1.6;
-    }
+}
 
-    img {
+img {
   max-width: 100%;
   display: block;
 }
@@ -33,7 +33,7 @@ button {
 
 
 
-    header {
+ header {
       display: flex;
      justify-content: space-between;
      align-items: center;
@@ -43,9 +43,9 @@ button {
       top: 0;
       z-index: 100;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
+ }
 
-        header-nav {
+ .header-nav {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -70,6 +70,8 @@ button {
         height: 40px;
       }
     }
+
+
     header h2 {
       color: var(--primary);
       display: flex;
@@ -91,6 +93,7 @@ button {
       text-decoration: none;
       color: var(--secondary);
       font-weight: 500;
+       padding: 10px 15px;
       transition: color 0.3s ease;
     }
     .nav-links ul li a:hover {
@@ -107,11 +110,49 @@ button {
       cursor: pointer;
     }
 
+/* menu toggle */
+  .menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: var(--secondary);
+  cursor: pointer;
+  }
+
     @media (max-width: 768px) {
-      .nav-links ul {
-        display: none;
-      }
-    }
+    .nav-links {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e6dfdf;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    
+  }
+
+  .nav-links.active {
+   max-height: 300px;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: var(--secondary);
+    cursor: pointer;
+
+  }
+}
 
     /*body sections*/
 
@@ -119,7 +160,7 @@ button {
       display: block;
       width: 100%;
       padding: 80px 8%;
-  background: white;
+      background: white;
       align-items: center;
     }
 
@@ -140,8 +181,7 @@ button {
     color: var(--gray);
     width: 100%;
     text-align: center;
-    max-width: 700px;
-  margin-bottom: 30px;
+    margin-bottom: 30px;
     margin-top: 10px;
     font-size: 1.1rem;
     }
@@ -186,7 +226,7 @@ button {
     .hero-cta {
      display: flex;
   flex-direction: column;
-  gap: 12px
+  gap: 12px;
     }
 
     .btn1 {
